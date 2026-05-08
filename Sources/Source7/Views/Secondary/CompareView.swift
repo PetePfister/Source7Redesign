@@ -70,7 +70,7 @@ struct CompareView: View {
                         // Picker A
                         Picker("", selection: $aId) {
                             ForEach(productList) { p in
-                                Text("\(p.id) — \(p.title.prefix(40))").tag(p.id)
+                                Text("\(p.id) — \(String(p.title.prefix(40)))").tag(p.id)
                             }
                         }
                         .frame(maxWidth: .infinity)
@@ -84,7 +84,7 @@ struct CompareView: View {
                         // Picker B
                         Picker("", selection: $bId) {
                             ForEach(productList) { p in
-                                Text("\(p.id) — \(p.title.prefix(40))").tag(p.id)
+                                Text("\(p.id) — \(String(p.title.prefix(40)))").tag(p.id)
                             }
                         }
                         .frame(maxWidth: .infinity)
