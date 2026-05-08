@@ -5,7 +5,7 @@ struct ImageSlotsGrid: View {
     let productId: String
     let onZoom: (ImageSlot) -> Void
 
-    let columns = [GridItem(.adaptive(minimum: 100, maximum: 160), spacing: 8)]
+    let columns = [GridItem(.adaptive(minimum: 180), spacing: 8)]
 
     var body: some View {
         LazyVGrid(columns: columns, spacing: 8) {
