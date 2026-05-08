@@ -392,13 +392,17 @@ struct TableHeaderCell: View {
     }
 
     var body: some View {
-        Text(text.uppercased())
+        let label = Text(text.uppercased())
             .font(.system(size: 10, weight: .semibold))
             .tracking(0.4)
             .foregroundColor(.text2)
             .padding(.horizontal, 10)
             .padding(.vertical, 8)
-            .frame(width: width, maxWidth: width == nil ? .infinity : nil, alignment: alignment)
+        if let w = width {
+            label.frame(width: w, alignment: alignment)
+        } else {
+            label.frame(maxWidth: .infinity, alignment: alignment)
+        }
     }
 }
 
@@ -418,12 +422,16 @@ struct TableCell: View {
     }
 
     var body: some View {
-        Text(text)
+        let label = Text(text)
             .font(mono ? .system(size: 11.5, design: .monospaced) : .system(size: 11.5))
             .foregroundColor(muted ? .text2 : .text1)
             .padding(.horizontal, 10)
             .padding(.vertical, 7)
-            .frame(width: width, maxWidth: width == nil ? .infinity : nil, alignment: alignment)
+        if let w = width {
+            label.frame(width: w, alignment: alignment)
+        } else {
+            label.frame(maxWidth: .infinity, alignment: alignment)
+        }
     }
 }
 

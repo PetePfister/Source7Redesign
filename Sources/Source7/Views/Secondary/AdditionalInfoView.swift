@@ -234,15 +234,20 @@ private func articleId(product: Product, sw: Swatch) -> String {
 }
 
 extension Text {
+    @ViewBuilder
     func scriptHeaderCell(width: CGFloat? = nil, trailing: Bool = false) -> some View {
-        self
+        let styled = self
             .font(.system(size: 11, weight: .semibold))
             .tracking(0.4)
             .foregroundColor(.text2)
             .textCase(.uppercase)
-            .frame(width: width, maxWidth: width == nil ? .infinity : nil,
-                   alignment: trailing ? .trailing : .leading)
             .padding(.horizontal, 12)
             .padding(.vertical, 8)
+        let alignment: Alignment = trailing ? .trailing : .leading
+        if let w = width {
+            styled.frame(width: w, alignment: alignment)
+        } else {
+            styled.frame(maxWidth: .infinity, alignment: alignment)
+        }
     }
 }

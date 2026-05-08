@@ -121,15 +121,20 @@ struct CountPill: View {
 }
 
 extension Text {
+    @ViewBuilder
     func historyHeaderCell(width: CGFloat? = nil, center: Bool = false) -> some View {
-        self
+        let styled = self
             .font(.system(size: 11, weight: .semibold))
             .tracking(0.4)
             .foregroundColor(.text2)
             .textCase(.uppercase)
-            .frame(width: width, maxWidth: width == nil ? .infinity : nil,
-                   alignment: center ? .center : .leading)
             .padding(.horizontal, 12)
             .padding(.vertical, 9)
+        let alignment: Alignment = center ? .center : .leading
+        if let w = width {
+            styled.frame(width: w, alignment: alignment)
+        } else {
+            styled.frame(maxWidth: .infinity, alignment: alignment)
+        }
     }
 }
