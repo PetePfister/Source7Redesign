@@ -3,7 +3,7 @@ import PackageDescription
 
 let package = Package(
     name: "Source7",
-    platforms: [.macOS(.v14)],
+    platforms: [.macOS(.v13)],
     targets: [
         .executableTarget(
             name: "Source7",

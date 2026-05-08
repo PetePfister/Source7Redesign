@@ -77,7 +77,7 @@ struct ContentView: View {
             SidebarView()
                 .environmentObject(state)
                 .navigationSplitViewColumnWidth(min: 180, ideal: 200, max: 220)
-                .toolbar(removing: .sidebarToggle)
+
         } detail: {
             MainContentView()
                 .environmentObject(state)
